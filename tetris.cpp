@@ -20,20 +20,11 @@ int niesmiertelny=0;
 tetrisPart::tetrisPart(int col,int row)
 {
 	x=col;
-	y=row;
-	
-}
-
-tetrisClass::tetrisClass()
-{
-	
+	y=row;	
 }
 
 void tetrisClass::createPacMan()
 {
-	
-	//Bojo
-	
 	mxd.lock();
 	pacMan.push_back(tetrisPart(24,75));
 	move(24,75);
@@ -165,6 +156,7 @@ bool tetrisClass::collision(int k)
 void tetrisClass::createBadGhosts()
 {
 	mxd.lock();
+	
 	ghost.push_back(tetrisPart(3,3));
 	move(3,3);
 	addch('B');
@@ -740,10 +732,4 @@ void tetrisClass::createMap()
 	
 	refresh();
 	mxd.unlock();
-
-}
-
-tetrisClass::~tetrisClass()
-{
-
 }

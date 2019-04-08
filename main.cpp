@@ -5,24 +5,19 @@ using namespace std;
 
 int main()
 {	
-	//stworzenie okna
-	initscr();
-	int delay,maxwidth,maxheight;
+	initscr(); 	//stworzenie okna
+	int maxwidth,maxheight; // wymiary okna konsoli
 	nodelay(stdscr,true); // getch nie czeka na nacisniecie przycisku
-	keypad(stdscr,true);
-	noecho();
-	curs_set(0);
-	getmaxyx(stdscr,maxheight,maxwidth);
-	
-	delay=110000;
-	bool get=false;
-	srand(time(0));
+	keypad(stdscr,true); //obsluga klawiatury w programie a nie shellu
+	noecho();// musi byc
+	getmaxyx(stdscr,maxheight,maxwidth);// ustawienie wartosci -- nie trzeba przekazywac przez referencje
+	srand(time(0)); //pseudolosowosc
 	
 	//linie brzegowe
 	for(int i=0; i<maxheight-1;i++)
 	{
-		move(i,0);
-		addch('X');
+		move(i,0);//przesuwa na wybrane pole
+		addch('X');//i drukuje litere
 	}
 	for(int i=0; i<maxwidth-1;i++)
 	{
@@ -40,8 +35,9 @@ int main()
 		addch('X');
 	}
 
-	refresh();
-		
+	refresh(); //aktualizacja obrazu
+	
+	//niezbedne deklaracje
 	tetrisClass pacMan,ghosts,mapa;
 	std::vector<std::thread> threads;
 
@@ -52,8 +48,8 @@ int main()
 	for(auto& thread : threads)
 		thread.join();
 	
-	nodelay(stdscr,false);
+	nodelay(stdscr,false);// po skonczeniu pracy programu, odblokowana mozliwosc pisania aby moc zakonczyc dzialanie programu
 	getch();
-	endwin();
+	endwin();// resetuje terminal do domyslnego stanu
 	return 0;
 }

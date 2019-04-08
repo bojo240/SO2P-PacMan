@@ -19,8 +19,6 @@ extern std::vector<tetrisPart> specialKarma;
 class tetrisClass
 {
 public:
-	tetrisClass();
-	~tetrisClass();
 
 	void createMap();
 	bool collision(int);
@@ -32,7 +30,4 @@ public:
 	void createBadGhosts();
 	void moveGhost();
 	int ghostCollision(int,int);
-
 };
-
-
