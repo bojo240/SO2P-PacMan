@@ -39,9 +39,9 @@ int main()
 	
 	//niezbedne deklaracje
 	tetrisClass pacMan,ghosts,mapa;
-	std::vector<std::thread> threads;
+	std::vector<std::thread> threads; //wektor watkow
 
-	threads.push_back(std::thread (&tetrisClass::createMap,&mapa));
+	threads.push_back(std::thread (&tetrisClass::createMap,&mapa)); //utworzenie i dodatnie watkow do wektora
 	threads.push_back(std::thread (&tetrisClass::createPacMan,&pacMan));
 	threads.push_back(std::thread (&tetrisClass::createBadGhosts,&ghosts));
 

@@ -14,7 +14,7 @@ std::vector<tetrisPart> karma;
 std::vector<tetrisPart> ghost;
 std::vector<tetrisPart> specialKarma;
 
-bool gra=true;
+bool gra=true; // zmienna globalna do sterowania dzialaniem petli glownej gry
 int niesmiertelny=0;
 
 tetrisPart::tetrisPart(int col,int row)
@@ -183,7 +183,9 @@ void tetrisClass::createBadGhosts()
 	addch('B');
 
 	refresh();
+	
 	mxd.unlock();
+	
 	std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	while(gra)
 	{
