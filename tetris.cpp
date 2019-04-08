@@ -33,12 +33,7 @@ tetrisClass::tetrisClass()
 void tetrisClass::createPacMan()
 {
 	
-	
-	
-	
-	//andrju 
-	
-	
+	//Bojo
 	
 	mxd.lock();
 	pacMan.push_back(tetrisPart(24,75));
