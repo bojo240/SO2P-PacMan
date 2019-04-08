@@ -21,6 +21,7 @@ tetrisPart::tetrisPart(int col,int row)
 {
 	x=col;
 	y=row;
+	
 }
 
 tetrisClass::tetrisClass()
@@ -31,6 +32,14 @@ tetrisClass::tetrisClass()
 
 void tetrisClass::createPacMan()
 {
+	
+	
+	
+	
+	//andrju 
+	
+	
+	
 	mxd.lock();
 	pacMan.push_back(tetrisPart(24,75));
 	move(24,75);
