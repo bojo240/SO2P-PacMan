@@ -2,7 +2,7 @@
 #include <thread>
 #include <vector>
 using namespace std;
-
+// DFDASFDASFDF
 int main()
 {	
 	//stworzenie okna
