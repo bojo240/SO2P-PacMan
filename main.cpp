@@ -1,3 +1,4 @@
+//Random kom
 #include "tetris.h"
 #include <thread>
 #include <vector>
