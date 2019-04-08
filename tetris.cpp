@@ -25,7 +25,9 @@ tetrisPart::tetrisPart(int col,int row)
 
 tetrisClass::tetrisClass()
 {
+	
 }
+
 
 void tetrisClass::createPacMan()
 {
