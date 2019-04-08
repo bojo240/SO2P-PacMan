@@ -4,10 +4,10 @@
 #include <cstdlib>
 //struktura zawierajaca pojedyncza czesc weza
 
-struct tetrisPart{
+struct tetrisPart
+{
 	int x,y;
 	tetrisPart(int col,int row);
-
 };
 
 extern std::vector<tetrisPart> mapa;
@@ -28,9 +28,7 @@ public:
 	void createPacMan();
 	int getPacX();
 	int getPacY();
-
-
-
+	
 	void createBadGhosts();
 	void moveGhost();
 	int ghostCollision(int,int);

@@ -734,8 +734,8 @@ void tetrisClass::createMap()
 	move(23,40);
 	addch('*');
 	
-	specialKarma.push_back(tetrisPart(19,61));
-	move(19,61);
+	specialKarma.push_back(tetrisPart(33,61));
+	move(33,61);
 	addch('*');
 	
 	refresh();

@@ -2,7 +2,7 @@
 #include <thread>
 #include <vector>
 using namespace std;
-// DFDASFDASFDF
+
 int main()
 {	
 	//stworzenie okna
@@ -19,7 +19,6 @@ int main()
 	srand(time(0));
 	
 	//linie brzegowe
-
 	for(int i=0; i<maxheight-1;i++)
 	{
 		move(i,0);
