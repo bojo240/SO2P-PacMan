@@ -1,61 +1,33 @@
-//Random kom
-#include "tetris.h"
+#include "pacman.h"
 #include <thread>
 #include <vector>
 using namespace std;
-// DFDASFDASFDF
+
 int main()
 {	
-	//stworzenie okna
-	initscr();
-	int delay,maxwidth,maxheight;
+	initscr(); 	//stworzenie okna
+	int maxwidth,maxheight; // wymiary okna konsoli
 	nodelay(stdscr,true); // getch nie czeka na nacisniecie przycisku
-	keypad(stdscr,true);
-	noecho();
-	curs_set(0);
-	getmaxyx(stdscr,maxheight,maxwidth);
+	keypad(stdscr,true); //obsluga klawiatury w programie a nie shellu
+	noecho();// musi byc
+	getmaxyx(stdscr,maxheight,maxwidth);// ustawienie wartosci -- nie trzeba przekazywac przez referencje
+	srand(time(0)); //pseudolosowosc
+
+	refresh(); //aktualizacja obrazu
 	
-	delay=110000;
-	bool get=false;
-	srand(time(0));
-	
-	//linie brzegowe
+	//niezbedne deklaracje
+	pacmanClass pacMan,ghosts,mapa;
+	std::vector<std::thread> threads; //wektor watkow
 
-	for(int i=0; i<maxheight-1;i++)
-	{
-		move(i,0);
-		addch('X');
-	}
-	for(int i=0; i<maxwidth-1;i++)
-	{
-		move(0,i);
-		addch('X');
-	}
-	for(int i=0; i<maxwidth; i++)
-	{
-		move(maxheight-1,i);
-		addch('X');
-	}
-	for(int i=0;i<maxheight;i++)
-	{
-		move(i,maxwidth-1);
-		addch('X');
-	}
-
-	refresh();
-		
-	tetrisClass pacMan,ghosts,mapa;
-	std::vector<std::thread> threads;
-
-	threads.push_back(std::thread (&tetrisClass::createMap,&mapa));
-	threads.push_back(std::thread (&tetrisClass::createPacMan,&pacMan));
-	threads.push_back(std::thread (&tetrisClass::createBadGhosts,&ghosts));
+	threads.push_back(std::thread (&pacmanClass::createMap,&mapa)); //utworzenie i dodatnie watkow do wektora
+	threads.push_back(std::thread (&pacmanClass::createPacMan,&pacMan));
+	threads.push_back(std::thread (&pacmanClass::createBadGhosts,&ghosts));
 
 	for(auto& thread : threads)
 		thread.join();
 	
-	nodelay(stdscr,false);
+	nodelay(stdscr,false);// po skonczeniu pracy programu, odblokowana mozliwosc pisania aby moc zakonczyc dzialanie programu
 	getch();
-	endwin();
+	endwin();// resetuje terminal do domyslnego stanu
 	return 0;
 }
