@@ -24,5 +24,5 @@ Wątek poruszający duchami
 # Kompilacja
 g++ -std=c++11 pacman.cpp main.cpp -lncurses -pthread
 
-# Uruchomienie - terminal otwarty na pełne okno
+# Uruchomienie w terminalu otwartym na pełne okno
 ./a.out
